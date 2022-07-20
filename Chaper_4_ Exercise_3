@@ -1,0 +1,25 @@
+/*
+Declare and assign values to the variables a, b and c so that the program outputs “Success!”.
+*/
+
+
+using System;
+class Program
+{
+  static void Main()
+  {
+    int a = 3, b = 4, c = 1;
+    
+    if((a != b) && (a < b))
+    {
+      if(a > c)
+      {
+          Console.WriteLine("Success!");
+      }
+    }
+    else 
+    {
+      Console.WriteLine("Try once more!");
+    }
+  }
+}  
