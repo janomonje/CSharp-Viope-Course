@@ -1,0 +1,23 @@
+/*Write a C# program which prints out the first provided command line argument. 
+You can assume the argument is always provided and consists of letters and digits.
+
+Example output:
+The command line argument was: AnotherTestArgument */
+
+
+
+using System;  
+namespace Exercise3  
+{  
+    class Arguments  
+    {  
+        static void Main(string[] args)
+        {  
+            Console.Write("The command line argument was: ");  
+            foreach (Object obj in args)  
+            {  
+                Console.WriteLine(obj);       
+            }
+        }  
+    }  
+} 
