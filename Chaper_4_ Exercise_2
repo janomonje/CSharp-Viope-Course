@@ -1,0 +1,44 @@
+/*
+Your task is to declare the variables listed below and assign any acceptable values to them.
+
+var1 = 8-bit signed integer
+var2 = 64-bit signed integer
+var3 = 16-bit unsigned integer
+var4 = 64-bit double-precision floating point type
+
+Example output:
+var1 type ok.
+var2 type ok.
+var3 type ok.
+var4 type ok.
+*/
+
+
+using System;
+class Conversions
+{
+  static void Main()
+  {
+    sbyte var1 = 0;
+    long var2 = 0;
+    ushort var3 = 0;
+    double var4 = 0;
+    
+   if (var1.GetType() == typeof(sbyte)) 
+      {
+          Console.WriteLine("var1 type ok.");
+      }
+      if (var2.GetType() == typeof(Int64))
+      {
+          Console.WriteLine("var2 type ok.");
+      }
+      if (var3.GetType() == typeof(UInt16))
+      {
+          Console.WriteLine("var3 type ok.");
+      }
+      if (var4.GetType() == typeof(Double))
+      {
+          Console.WriteLine("var4 type ok.");
+      }
+  }
+}
