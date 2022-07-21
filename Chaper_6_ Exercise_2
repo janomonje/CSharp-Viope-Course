@@ -1,0 +1,35 @@
+/*
+  Write a C# program which asks the user for integers until a sum of 200 is reached.  You must use while statement to complete the task.
+
+
+Example output:
+Sum is now 0. Input: 99
+Sum is now 99. Input: 1
+Sum is now 100. Input: 98
+Sum is now 198. Input: 5
+Reached 200. The total was 203.
+*/
+
+
+using System;
+namespace chapter_6
+{
+	class exercise_1
+	{
+		static void Main(string [] args)
+		{
+			int sum = 0, user_input = 0;
+			while (sum <= 200)
+			{
+				Console.Write($"Sum is now {sum}. Input: ");
+				user_input = Int32.Parse(Console.ReadLine());
+				sum += user_input;
+			}
+			if (sum >= 200)
+			{
+				Console.WriteLine($"Reached 200. The total was {sum}.");
+			}
+        }
+	}
+	
+}
