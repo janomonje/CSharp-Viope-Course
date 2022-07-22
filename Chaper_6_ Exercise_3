@@ -1,0 +1,22 @@
+/*
+Use the foreach statement to print out the character literals in the array “characters”.
+
+Example output:
+Learn C#
+*/
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        char[] characters = { 'L', 'e', 'a', 'r', 'n', ' ', 'C','#'};
+
+
+	foreach(Object obj in characters)
+		{
+		Console.Write(obj);
+		}
+  }
+}
