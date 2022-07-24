@@ -1,0 +1,109 @@
+/*
+
+Your task is to program a C# game Cockroach, Foot, Nuke. 
+The game has same rules as Rock, Paper Scissors – cockroach loses to foot, foot loses to nuke and nuke loses to cockroach.
+
+Hint: random number generation
+Random random = new Random();
+computer = random.Next(1, 4);
+
+Example output:
+
+Cockroach-Foot-Nuke. Choose 1-4.
+1) Cockroach 2) Foot 3) Nuke 4) Exit
+3 Nuke!
+Computer had Nuke. A Tie!
+
+Cockroach-Foot-Nuke. Choose 1-4.
+1) Cockroach 2) Foot 3) Nuke 4) Exit
+4
+*/
+
+
+using System;
+
+namespace open_exercise
+{
+    class Game
+    {
+        static void Main(string [] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("Cockroach-Foot-Nuke. \nChoose 1-4. \n1) Cockroach \n2) Foot \n3) Nuke \n4) Exit");
+                int choice = Int32.Parse(Console.ReadLine());
+                Random random = new Random();
+                int computer = random.Next(1, 4);
+                
+                if (computer == 1)
+                {
+                    if (choice == 1)
+                    {
+                        Console.WriteLine(choice + " Cockroach! ");
+                        Console.WriteLine("Computer had Cockroach. A Tie!\n");
+                    }
+                     else if (choice == 2)
+                    {
+                        Console.WriteLine(choice + " Foot! ");
+                        Console.WriteLine("Computer had Cockroach. You win!\n");
+                    }
+                    else if (choice == 3)
+                    {
+                        Console.WriteLine(choice + " Nuke! ");
+                        Console.WriteLine("Computer had Cockroach. You lose!\n");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                
+                }
+                else if (computer == 2)
+                {
+                    if (choice == 1)
+                    {
+                        Console.WriteLine(choice + " Cockroach! ");
+                        Console.WriteLine("Computer had Foot. You lose!\n");
+                    }
+                    else if (choice == 2)
+                    {
+                        Console.WriteLine(choice + " Foot! ");
+                        Console.WriteLine("Computer had Foot. A Tie!\n");
+                    }
+                    else if (choice == 3)
+                    {
+                        Console.WriteLine(choice + " Nuke! ");
+                        Console.WriteLine("Computer had Foot. You win!\n");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else if (computer == 3)
+                {
+                    if (choice == 1)
+                    {
+                        Console.WriteLine(choice + " Cockroach! ");
+                        Console.WriteLine("Computer had Nuke. You win!\n");
+                    }
+                    else if (choice == 2)
+                    {
+                        Console.WriteLine(choice + " Foot! ");
+                        Console.WriteLine("Computer had Nuke. You lose!\n");
+                    }
+                    else if (choice == 3)
+                    {
+                        Console.WriteLine(choice + " Nuke! ");
+                        Console.WriteLine("Computer had Nuke. A Tie!\n");
+                     }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
