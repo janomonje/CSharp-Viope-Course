@@ -1,0 +1,56 @@
+/*
+Bubble sort is the simplest sorting algorithm, which orders given values from smallest to biggest. 
+The pseudocode is the following:
+
+for i from 1 to N
+   for j from 0 to N-1
+      if a[j]>a[j+1]
+         swap(a[j], a[j+1])
+
+Write a C# program which implements bubble sort. The program gets the values as command line arguments.
+
+Hint: prepare an int array with the same size as string args length (use args.Length). Use foreach statement to traverse through all arguments and use int.Parse(argument) to convert the data to int and assign to the prepared int array.
+
+
+Example output:
+1 9 10 12 99 
+*/
+
+
+using System;
+namespace chapter_6
+{
+	class exercise_4
+	{
+		static void Main(string [] args)
+		{
+			int[] numbers = new int[args.Length];
+		    
+		   for (int i = 0; i < args.Length; i++)
+		    {
+		      if (!int.TryParse(args[i], out numbers[i]))
+                { 
+                    return;
+                }
+			   }
+			
+			
+        for (int i = 0; i < numbers.Length; i++)
+        {
+          for (int j = 0; j < numbers.Length; j++)
+          {
+            if (numbers[i] < numbers[j])
+            {
+              var keeper = numbers[i];
+              numbers[i] = numbers[j];
+              numbers[j] = keeper;						
+            }
+          }
+        }
+        foreach(var number in numbers)
+        {
+          Console.Write($"{number} ");
+        }
+			}
+	}	
+}
