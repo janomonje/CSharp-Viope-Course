@@ -23,3 +23,38 @@ Wozniak
 */
 
 
+using System;
+using System.Collections.Genecric;
+
+namespace Chapter_7
+{
+  Class Exercise_1
+  {
+    static void Main(string [] args)
+    {
+      List<string> names = new List<string> {"Torvalds", "Musk", "Gates", "Buffet", "Dorsey"};
+      
+      for(int i = 0; i < 5; i++)
+      {
+       if(names[i] == "Torvalds")
+       {
+         names[i] = "Jobs";
+       }
+       if(names[i] == "Gates")
+       {
+         names[i] = "McAfee";
+       }
+       if(names[i] == "Dorsey")
+       {
+         names[i] = "Wozniak";
+       }
+      }
+      foreach (string name in names)
+      {
+       Console.WriteLine(name);
+      }
+    }
+  }
+}
+Footer
+© 2022 GitH
