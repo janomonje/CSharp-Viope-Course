@@ -1,0 +1,45 @@
+/*
+Write a program which prompts the user to provide integer numbers until a negative number is given. 
+The provided numbers must be added to a List of type int named numbers.
+
+Note! Only provide the functionality for List declaration, user input (use pre-defined variable int input) and adding elements to the list.
+
+
+Example output:
+Input a number:101
+Input a number:121
+Input a number:1
+Input a number:-100
+Your input: 101 121 1 
+*/
+
+
+using System;
+using System.Collections.Genecric;
+
+namespace Chapter_7
+{
+  Class xercise_1
+  {
+    static void Main(string [] args)
+    {
+      int input;
+      input = 0;
+      List<int> numbers = new List<int>();
+      while(input >= 0)
+      {
+        Console.Write("Input a number:");
+        input = Int32.Parse(Console.ReadLine());
+        if(input >= 0)
+        {
+          numbers.Add(input);
+        }
+		  }
+      Console.Write("Your input: ");
+      foreach (int number in numbers)
+      {
+        Console,Write(number + " ");
+      }
+    }
+  }
+}
