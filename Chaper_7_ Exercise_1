@@ -19,7 +19,7 @@ using System.Collections.Genecric;
 
 namespace Chapter_7
 {
-  Class xercise_1
+  Class Exercise_1
   {
     static void Main(string [] args)
     {
