@@ -1,0 +1,25 @@
+/*
+You are provided with a List of type string having the following names:
+
+Torvalds, Musk, Gates, Buffet, Dorsey.
+
+ 
+
+Modify the list so that the items are:
+
+Jobs, Musk, McAfee, Buffet, Wozniak.
+
+ 
+
+Hint: you can use any of the suitable List class methods to complete the task.
+
+
+Example output:
+Jobs
+Musk
+McAfee
+Buffet
+Wozniak
+*/
+
+
