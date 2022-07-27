@@ -1,0 +1,44 @@
+/*
+Write a C# program which takes a file name as a command line argument and then prints the content of the file to the screen.
+
+Note: your program should check if a command line argument was provided and print “No filename provided!” if it does not exist. The program must also check that the provided file exists before reading it.
+
+
+Example output:
+Yes
+you
+did
+it!
+*/
+
+using System;
+using System.IO;
+using System.Linq;
+
+namespace chapter_8
+{
+	class exercise1
+	{
+		static void Main(string[] arguments)
+		{
+			
+			if(arguments.Any())
+			{
+				var fileName = arguments[0];
+				if(File.Exists(fileName))
+				{					
+					var content = File.ReadAllText(fileName);
+					Console.WriteLine(content);
+				}
+				else
+				{
+					Console.WriteLine("File does not exist!");
+				}
+			}
+			else
+			{
+				Console.WriteLine("No filename provided!");
+			}
+		}
+	}	
+}
