@@ -1,0 +1,36 @@
+/*
+Your task is to write a C# program which asks the user for a file name and content.
+Then the program creates the file with the user provided content.
+
+
+Example output:
+Filename to create: bar.txt
+Provide the content for bar.txt:
+Another line of test content
+*/
+
+
+using System;
+using System.IO;
+using System.Linq;
+
+namespace chapter_8
+{
+	class exercise2
+	{
+		static void Main()
+		{
+			Console.Write("Filename to create: ");
+			var fileName = Console.ReadLine();
+			
+			Console.WriteLine($"Provide the content for {fileName}:");
+			var content = Console.ReadLine();
+			
+			using(StreamWriter writer = new StreamWriter(fileName))
+			{
+				writer.Write(content);
+				writer.Close();
+			}
+		}
+	}
+}
