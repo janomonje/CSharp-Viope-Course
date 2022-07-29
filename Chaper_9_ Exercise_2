@@ -1,0 +1,123 @@
+/*
+Your task is to create the application logic for the Movie Watch Log. The program shows the Main Menu and asks for an input.  If the input is valid, the program prints out the name of the option or "Unknown command" otherwise. Hint: you can build the application logic to its own class and call the selected methods based on the input.
+
+
+Example output:
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 2
+
+
+Delete a Movie
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 4
+
+
+Load database
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 6
+*/
+
+
+using System;
+using System.Collections.Generic;
+
+namespace Chapter_9
+{
+    class Exercise2
+    {
+        static List<Movie> movies = new List<Movie>();
+        static void Main(string[] args)
+        {
+         
+
+            while (true)
+            {
+                Console.WriteLine("\n\r\n\rMovie Watchlog\n==============");
+                Console.WriteLine("1) Add a Movie\n" +
+                                  "2) Delete a Movie\n" +
+                                  "3) Show Report\n" +
+                                  "4) Load Database\n" +
+                                  "5) Save Database\n" +
+                                  "6) Quit");
+                Console.Write("Input: ");
+                var choice = Convert.ToInt32(Console.ReadLine());
+                
+                if (choice == 1)
+                {
+                    Console.WriteLine("\n\rAdd a Movie");
+                }
+                else if (choice == 2)
+                {
+                    Console.WriteLine("\n\rDelete a Movie");
+
+                }
+                else if (choice == 3)
+                {
+                    Console.WriteLine("\n\rShow Report");
+                }
+                else if (choice == 4)
+                {
+                    Console.WriteLine("\n\rLoad database");
+                }
+                else if (choice == 5)
+                {
+                    Console.WriteLine("\n\rSave database");
+                }
+                else if (choice == 6)
+                {
+                    Console.Write("\n\r");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\nUnknown command");
+                }
+            }
+        }
+    }
+}
+
+[Serializable]
+public class Movie
+{
+    public string Name;
+    public int Length;
+    public int Year;
+    public Movie(string name, int length, int year)
+    {
+        this.Name = name;
+        this.Length = length;
+        this.Year = year;
+    }
+
+}
