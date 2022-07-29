@@ -1,0 +1,185 @@
+/*
+Your task is to program two functions to the Movie Watch Log. Add a Movie selection prompts the user for the movie details and then saves it to a List of objects of type Movie. Show Report loops over all movies in the list and prints out a report shown in the example output.
+
+Hint: use your solutions from exercises 9.1 and 9.2 to build on.
+
+
+Example output:
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 1
+
+
+Add a Movie:
+Name:Blade Runner
+Length (min):117
+Year:1982
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 1
+
+
+Add a Movie:
+Name:Blade Runner 2047
+Length (min):164
+Year:2017
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 3
+
+
+Blade Runner (1982), 117 minutes.  
+Blade Runner 2047 (2017), 164 minutes.  
+
+
+Total of 2 movies and 281 minutes.
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 6
+*/
+
+
+using System;
+using System.Collections.Generic;
+
+namespace Chapter_9
+{
+    class Exercise2
+    {
+        static List<Movie> movies = new List<Movie>();
+        static void Main(string[] args)
+        {
+         
+
+            while (true)
+            {
+                Console.WriteLine("\n\r\n\rMovie Watchlog\n==============");
+                Console.WriteLine("1) Add a Movie\n" +
+                                  "2) Delete a Movie\n" +
+                                  "3) Show Report\n" +
+                                  "4) Load Database\n" +
+                                  "5) Save Database\n" +
+                                  "6) Quit");
+                Console.Write("Input: ");
+                var choice = Convert.ToInt32(Console.ReadLine());
+				
+                
+                if (choice == 1)
+                {
+                    Console.WriteLine("\n\rAdd a Movie:");
+					AddMovie();
+                }
+                else if (choice == 2)
+                {
+                    Console.WriteLine("\n\rDelete a Movie");
+
+                }
+                else if (choice == 3)
+                {
+					ShowReport();
+                }
+                else if (choice == 4)
+                {
+                    Console.WriteLine("\n\rLoad database");
+                }
+                else if (choice == 5)
+                {
+                    Console.WriteLine("\n\rSave database");
+                }
+                else if (choice == 6)
+                {
+                    Console.Write("\n\r");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\nUnknown command");
+                }
+            }
+		}
+			
+			private static void AddMovie()
+				{
+					Console.Write("Name:");
+					string name = Console.ReadLine();
+					Console.Write("Length (min):");
+					int length = Int32.Parse(Console.ReadLine());
+					Console.Write("Year:");
+					int year = Int32.Parse(Console.ReadLine());
+
+					movies.Add(new Movie(name,length, year));
+				}
+		
+			private static void ShowReport()
+			{
+            int movieCounter = 0;
+            int totalMinutes = 0;
+            foreach (var title in movies)
+            {
+                movieCounter++;
+                totalMinutes += title.Length;
+                if (movieCounter >= 2)
+                {
+                    Console.WriteLine($"{title.Name} ({title.Year}), {title.Length} minutes.  ");
+                }
+                else {
+                    Console.WriteLine($"\n\r{title.Name} ({title.Year}), {title.Length} minutes.  ");
+                }
+            }
+
+            Console.Write($"\n\rTotal of {movieCounter} movies and {totalMinutes} minutes.\n");
+        }
+        }
+    }
+
+
+[Serializable]
+public class Movie
+{
+    public string Name;
+    public int Length;
+    public int Year;
+    public Movie(string name, int length, int year)
+    {
+        this.Name = name;
+        this.Length = length;
+        this.Year = year;
+    }
+	
+}
