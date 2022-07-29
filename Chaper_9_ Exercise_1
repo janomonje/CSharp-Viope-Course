@@ -1,0 +1,44 @@
+/*
+In the final chapter of the course we put together everything we have learnt so far by creating a project called Movie Watch Log. As the name implies the software helps the user to keep track of the movies they have watched. Features include adding and deleting a movie, saving and loading the data to/from a storage media and showing a simple watch report.
+
+In this exercise your task is to define Movie class, its fields and the constructor. The class must be serializable.
+
+The class properties are Name, Length and Year and the constructor parameters are in the same order.
+
+
+Example output:
+Name: Robocop, length: 102min, year: 1987
+
+Name: Robocop 2, length: 117min, year: 1990
+
+Name: Robocop 3, length: 104min, year: 1993In the final chapter of the course we put together everything we have learnt so far by creating a project called Movie Watch Log. As the name implies the software helps the user to keep track of the movies they have watched. Features include adding and deleting a movie, saving and loading the data to/from a storage media and showing a simple watch report.
+
+In this exercise your task is to define Movie class, its fields and the constructor. The class must be serializable.
+
+The class properties are Name, Length and Year and the constructor parameters are in the same order.
+
+
+Example output:
+Name: Robocop, length: 102min, year: 1987
+
+Name: Robocop 2, length: 117min, year: 1990
+
+Name: Robocop 3, length: 104min, year: 1993
+*/
+
+
+[Serializable]
+public class Movie
+{
+    public Movie(string Name, int Length, int Year)
+    {
+        this.Name = Name;
+        this.Length = Length;
+        this.Year = Year;
+    }
+
+    public string Name { get; set; }
+    public int Length { get; set; }
+    public int Year { get; set; }
+}
+}
