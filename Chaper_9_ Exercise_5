@@ -1,0 +1,198 @@
+/*
+Improve the Movie Watchlog program by adding a feature to save the movie database. 
+The name of the database file is database.xml. Use serialization to save the Movie object collection to the database.
+
+Example output:
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 1
+
+
+Add a Movie:
+Name:Platoon
+Length (min):108
+Year:1991
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 5
+
+
+Database saved.
+
+
+
+Movie Watchlog
+==============
+1) Add a Movie
+2) Delete a Movie
+3) Show Report
+4) Load Database
+5) Save Database
+6) Quit
+Input: 6
+*/
+
+
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
+
+namespace Chapter_9
+{
+    class Exercise2
+    {
+        static List<Movie> movies = new List<Movie>();
+        static void Main(string[] args)
+        {
+		
+         while (true)
+            {
+                Console.WriteLine("\n\r\n\rMovie Watchlog\n==============");
+                Console.WriteLine("1) Add a Movie\n" +
+                                  "2) Delete a Movie\n" +
+                                  "3) Show Report\n" +
+                                  "4) Load Database\n" +
+                                  "5) Save Database\n" +
+                                  "6) Quit");
+                Console.Write("Input: ");
+                var choice = Convert.ToInt32(Console.ReadLine());				
+                
+                if (choice == 1)
+                {
+                    Console.WriteLine("\n\rAdd a Movie:");
+					AddMovie();
+                }
+                else if (choice == 2)
+                {
+                    Console.WriteLine("\n\rDelete a Movie:");
+					DeleteMovie();
+
+                }
+                else if (choice == 3)
+                {
+					ShowReport();
+                }
+                else if (choice == 4)
+                {
+                    Console.WriteLine("\n\rLoad database");
+                }
+                else if (choice == 5)
+                {
+                   SaveDatabase();
+                }
+                else if (choice == 6)
+                {
+                    Console.Write("\n\r");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\nUnknown command");
+                }
+            }
+		}
+			
+		private static void AddMovie()
+		{
+			Console.Write("Name:");
+			string name = Console.ReadLine();
+			Console.Write("Length (min):");
+			int length = Int32.Parse(Console.ReadLine());
+			Console.Write("Year:");
+			int year = Int32.Parse(Console.ReadLine());
+
+			movies.Add(new Movie(name,length, year));
+		}
+		
+		private static void ShowReport()
+		{
+			int movieCounter = 0;
+			int totalMinutes = 0;
+			foreach (var title in movies)
+			{
+				movieCounter++;
+				totalMinutes += title.Length;
+				if (movieCounter >= 2)
+				{
+					Console.WriteLine($"{title.Name} ({title.Year}), {title.Length} minutes.  ");
+					Console.Write("\n");
+				}
+				else 
+				{
+					Console.WriteLine($"\n\r{title.Name} ({title.Year}), {title.Length} minutes.  ");
+				}
+			}
+			if(movieCounter <= 0)
+			{
+				Console.Write("\n\r\n\rTotal of 0 movies and 0 minutes.\n");
+			}
+			else
+			{
+				Console.Write($"\n\rTotal of {movieCounter} movies and {totalMinutes} minutes.\n");	
+			}
+			
+		}
+		
+		private static void DeleteMovie()
+		{
+			int movieCounter = 0;
+			int userChoice = 0;
+			foreach (var title in movies)
+			{
+				movieCounter++;
+				Console.WriteLine($"{movieCounter}) {title.Name} ({title.Year}), {title.Length} minutes.  ");
+			}
+			Console.Write("Input: ");
+			userChoice = Int32.Parse(Console.ReadLine());
+			movies.RemoveAt(userChoice - 1);
+			
+		}
+		
+		private static void SaveDatabase()
+		{
+			XmlSerializer serializer =  new XmlSerializer(typeof(List<Movie>));
+			using(StreamWriter writer = new StreamWriter("database.xml"))
+			{
+				serializer.Serialize(writer, movies);
+				writer.Close();
+				Console.WriteLine("\n\rDatabase saved.");
+				
+			}
+		}
+	}
+}
+
+
+[Serializable]
+public class Movie
+{
+    public string Name;
+    public int Length;
+    public int Year;
+	
+	public Movie(){}
+    public Movie(string name, int length, int year)
+    {
+        this.Name = name;
+        this.Length = length;
+        this.Year = year;
+    }
+}
